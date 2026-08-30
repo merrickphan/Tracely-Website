@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/webp" href="assets/tracely-logo.webp" />
+<template id="__bundler_thumbnail" data-bg-color="#ECECEC"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#ECECEC"></rect><rect x="14" y="30" width="22" height="44" rx="4" fill="#FFFFFF"></rect><rect x="39" y="26" width="22" height="52" rx="4" fill="#FFFFFF"></rect><rect x="64" y="30" width="22" height="44" rx="4" fill="#FFFFFF"></rect></svg></template>
+<style>
+  html { overflow-x: hidden; }
+  html, body { margin: 0; padding: 0; background: #ECECEC; }
+  body, body * { font-family: Inter, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  a { color: #1B1B1B; text-decoration: none; }
+  a:hover { color: #FF5722; }
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;min-height:100vh;overflow:hidden;background:#ECECEC">
+<div ref="{{ canvasRef }}" style="position:relative;width:1920px;height:1120px;overflow:hidden;transform-origin:top left;visibility:hidden;background:#ECECEC;font-family:Inter, sans-serif">
+
+  <a href="../" style="position:absolute;left:130px;top:60px;width:80px;height:64px;background:url(assets/tracely-logo.webp) center / contain no-repeat"></a>
+  <a href="../" style="position:absolute;left:218px;top:78px;text-decoration:none;font-weight:700;font-size:32px;line-height:28.8px;letter-spacing:-0.384px;color:#1B1B1B;white-space:nowrap">Tracely</a>
+
+  <a href="../" style="position:absolute;left:1536px;top:87px;font-weight:700;font-size:17px;line-height:21px;color:#1B1B1B;white-space:nowrap">Features</a>
+  <a href="#" style="position:absolute;left:1650px;top:87px;font-weight:700;font-size:17px;line-height:21px;color:#1B1B1B;white-space:nowrap">Mobile</a>
+  <a href="#" style="position:absolute;left:1750px;top:87px;font-weight:700;font-size:17px;line-height:21px;color:#1B1B1B;white-space:nowrap">Blog</a>
+
+  <div style="position:absolute;left:0;top:181px;width:1920px;height:244px;display:flex;align-items:center;justify-content:center">
+    <span style="display:inline-block;font-weight:700;font-size:82px;line-height:100%;letter-spacing:-1.6px;white-space:nowrap;background-image:linear-gradient(96deg, #000000 0%, #2C2C2C 45%, #5A5A5A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Start</span>
+    <div style="flex:0 0 auto;width:244px;height:244px;margin:0 -26px;background:url(assets/logo-mark-large.webp) center / contain no-repeat;filter:drop-shadow(0px 6px 22px rgba(255,120,40,0.45))"></div>
+    <span style="display:inline-block;font-weight:700;font-size:82px;line-height:100%;letter-spacing:-1.6px;white-space:nowrap;background-image:linear-gradient(96deg, #5A5A5A 0%, #2C2C2C 45%, #000000 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">for free.</span>
+  </div>
+
+  <div style="position:absolute;left:400px;top:420px;width:1120px;text-align:center;font-weight:500;font-size:21px;line-height:38px"><span style="background-image:linear-gradient(96deg, #000000 0%, #6E6E6E 25%, #000000 50%, #6E6E6E 75%, #000000 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Tracely finds the strongest evidence for your essay, coaches your writing like a great teacher, and helps with reasoning and structure for your literature needs</span></div>
+
+  <sc-for list="{{ tiers }}" as="tier" hint-placeholder-count="3">
+    <div style="position:absolute;top:530px;left:{{ tier.left }};width:440px;box-sizing:border-box;border-radius:22px;background:#FFFFFF;box-shadow:0px 32px 90px rgba(28,20,12,0.13), 0px 8px 28px rgba(28,20,12,0.06);padding:40px 40px 48px">
+      <div style="font-weight:400;font-size:19px;line-height:24px;color:#1B1B1B">{{ tier.name }}</div>
+      <div style="margin-top:14px;display:flex;align-items:baseline;gap:8px">
+        <span style="font-weight:700;font-size:56px;line-height:56px;letter-spacing:-1.2px;color:#000000">{{ tier.price }}</span>
+        <span style="font-weight:400;font-size:19px;line-height:24px;color:#1B1B1B">{{ tier.per }}</span>
+      </div>
+      <div style="margin-top:26px;height:58px;border-radius:12px;background:#3A3A3C;display:flex;align-items:center;justify-content:center;gap:10px">
+        <span style="font-weight:700;font-size:19px;line-height:24px;color:#FFFFFF;white-space:nowrap">{{ tier.cta }}</span>
+        <span style="font-weight:400;font-size:15px;color:#FFFFFF">{{ tier.caret }}</span>
+      </div>
+      <div style="margin-top:26px;font-weight:400;font-size:16px;line-height:22px;color:#1B1B1B">{{ tier.blurb }}</div>
+      <div style="margin-top:20px;height:1px;background:#E3E3E3"></div>
+      <div style="margin-top:26px;display:flex;flex-direction:column;gap:20px">
+        <sc-for list="{{ tier.features }}" as="feature" hint-placeholder-count="4">
+          <div style="display:flex;align-items:flex-start;gap:16px">
+            <span style="font-weight:700;font-size:17px;line-height:22px;color:#1A73E8">✓</span>
+            <span style="font-weight:400;font-size:17px;line-height:22px;color:#1B1B1B">{{ feature.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  componentDidMount() {
+    this._onResize = () => this.fit();
+    window.addEventListener("resize", this._onResize);
+    requestAnimationFrame(() => this.fit());
+  }
+
+  componentWillUnmount() { window.removeEventListener("resize", this._onResize); }
+
+  // authored on a fixed 1920×1300 canvas; scale it to the real viewport width
+  fit() {
+    const wrap = this._fit, canvas = this._canvas;
+    if (!wrap || !canvas) return;
+    const w = wrap.clientWidth || window.innerWidth;
+    const s = w / 1920;
+    canvas.style.transform = "scale(" + s + ")";
+    canvas.style.visibility = "visible";
+    wrap.style.height = 1120 * s + "px";
+  }
+
+  renderVals() {
+    const tbd = "Still being determined";
+    return {
+      // a ref on the template's outermost node never fires (the runtime owns
+      // it), so derive the wrapper from the canvas
+      canvasRef: (el) => {
+        if (!el || el === this._canvas) return;
+        this._canvas = el;
+        this._fit = el.parentElement;
+        this.fit();
+      },
+      tiers: [
+        {
+          left: "254px", name: "Starter", price: "Free", per: "", cta: "Get for Windows", caret: "⌄",
+          blurb: "All essential features.",
+          features: [
+            { label: "Limited AI responses" },
+            { label: tbd }, { label: tbd }, { label: tbd },
+          ],
+        },
+        {
+          left: "740px", name: "Pro", price: "$20", per: "/ month", cta: "Subscribe", caret: "",
+          blurb: "Unlimited access.",
+          features: [
+            { label: "Everything in Starter, plus..." },
+            { label: "Unlimited AI responses" },
+            { label: tbd }, { label: tbd }, { label: tbd },
+          ],
+        },
+        {
+          left: "1226px", name: "Pro +", price: "$30", per: "/ month", cta: "Subscribe", caret: "",
+          blurb: "Best feature — " + tbd.toLowerCase(),
+          features: [
+            { label: "Everything in Pro, plus..." },
+            { label: tbd },
+          ],
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

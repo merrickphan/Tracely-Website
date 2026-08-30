@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  html { overflow-x: hidden; }
+  html, body { margin: 0; padding: 0; background: #FFF5ED; }
+  body, body * { font-family: Inter, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  a { color: #FF5722; text-decoration: none; }
+  a:hover { color: #FF2D2D; }
+  @keyframes om-belt { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes om-faq { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  @keyframes om-toast { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes om-sheet {
+    0%, 100% { filter: brightness(1); }
+    42%      { filter: brightness(1.045); }
+  }
+  @keyframes om-lift {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50%      { transform: translateY(-7px) scale(1.012); }
+  }
+  @keyframes om-sweep {
+    0%   { transform: translate(-138px, 26px) rotate(-13deg); }
+    50%  { transform: translate(138px, 26px) rotate(13deg); }
+    100% { transform: translate(-138px, 26px) rotate(-13deg); }
+  }
+</style>
+<script src="https://accounts.google.com/gsi/client" async="" defer=""></script>
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/googledocs" data-resource-id="icoGoogledocs" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/googleslides" data-resource-id="icoGoogleslides" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/notion" data-resource-id="icoNotion" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/googlesheets" data-resource-id="icoGooglesheets" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/gmail" data-resource-id="icoGmail" />
+<link rel="icon" type="image/webp" href="assets/tracely-logo.webp" />
+<template id="__bundler_thumbnail" data-bg-color="#FF8A2B"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="#FF8A2B"></rect><path d="M32 40 L70 32 L52 62 L46 48 Z" fill="#FFFFFF"></path><path d="M32 40 L52 62 L46 48 Z" fill="#FFD8B0"></path></svg></template>
+</helmet>
+
+<div ref="{{ fitRef }}" style="position:relative;width:100%;overflow:hidden;background:#FFF5ED">
+<div ref="{{ canvasRef }}" style="position:relative;width:1920px;height:6501px;overflow:hidden;transform-origin:top left;visibility:hidden;background:#FFFFFF;font-family:Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+
+  <div ref="{{ anchorRef }}" style="position:absolute;left:0;top:0;width:0;height:0"></div>
+  <div style="position:absolute;left:-19px;top:144px;width:1939px;height:6357px;background:#FFF5ED;box-shadow:inset 0px 4px 4px rgba(0,0,0,0.25)"></div>
+  <div style="position:absolute;left:-79px;top:-265px;width:2155px;height:2366px;background:url(assets/hero-bg.webp) 64.124% 50% / 164.604% 100% no-repeat"></div>
+  <div style="position:absolute;left:0;top:1951px;width:1920px;height:150px;background:linear-gradient(180deg, rgba(255,245,237,0) 0%, rgba(255,245,237,0.5) 55%, #FFF5ED 100%)"></div>
+
+  <div style="position:absolute;left:133px;top:31px;width:78px;height:63px;background:url(assets/tracely-logo.webp) center / contain no-repeat;filter:brightness(0) invert(1)"></div>
+  <div style="position:absolute;left:200px;top:45px;font-weight:700;font-size:32px;line-height:28.8px;letter-spacing:-0.384px;color:#FFFFFF;white-space:nowrap">Tracely</div>
+  <a href="#" onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:765.5px;top:49.5px;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap;text-decoration:none">Features</a>
+  <a href="#" onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:855.5px;top:49.5px;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap;text-decoration:none">How It Works</a>
+  <a href="pricing/" style="position:absolute;left:975.5px;top:49.5px;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap;text-decoration:none">Pricing</a>
+  <a href="#" onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:1053.5px;top:49.5px;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap;text-decoration:none">Blog</a>
+  <div onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:1526px;top:49.5px;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap">Sign in</div>
+  <div onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:1583px;top:42px;width:133px;height:36px;border-radius:10px;background:linear-gradient(135deg, #FFAB00 0%, #FF5722 50%, #FF2D2D 100%);box-shadow:inset 4px 4px 0px rgba(255,255,255,0.15), 0px 4px 8.4px rgba(0,0,0,0.25)">
+    <div style="position:absolute;left:22px;top:7px;font-weight:700;font-size:12.8px;line-height:19.2px;letter-spacing:-0.128px;color:#FFFFFF;white-space:nowrap">Get started free</div>
+  </div>
+
+  <div style="position:absolute;left:0;top:249px;width:1920px;height:230px;display:flex;align-items:center;justify-content:center">
+    <span style="display:inline-block;font-weight:700;font-size:96px;line-height:1.3;padding-bottom:2px;white-space:nowrap;background-image:linear-gradient(180deg, #FFFFFF 68%, #EDE9E5 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0px 2px 3px rgba(158,83,50,0.42))">Sign up for</span>
+    <span style="flex:0 0 auto;width:230px;height:230px;margin:0 -14px;background:url(assets/logo-mark-large.webp) 50% 50% / 100% 100% no-repeat;filter:drop-shadow(10px 8px 17.5px rgba(158,83,50,0.81))"></span>
+    <span style="display:inline-block;font-weight:700;font-size:96px;line-height:1.3;padding-bottom:2px;white-space:nowrap;background-image:linear-gradient(180deg, #FFFFFF 68%, #EDE9E5 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0px 2px 3px rgba(158,83,50,0.42))">early</span>
+  </div>
+
+  <div style="position:absolute;left:550px;top:486px;width:754px;text-align:center;font-weight:400;font-size:19.2px;line-height:32.64px;color:#FFFFFF">Tracely finds the strongest evidence for your writing, coaches your writing like a great teacher, and helps with reasoning and structure for your literature needs</div>
+  <div style="position:absolute;left:889.5px;top:574px;width:120px;margin-left:-22.5px;text-align:center;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap">launching in</div>
+
+  <sc-for list="{{ countdown }}" as="unit" hint-placeholder-count="4">
+    <div style="position:absolute;top:628px;left:{{ unit.left }};width:92px;height:96px;box-sizing:border-box;border-radius:8px;background:#FFFFFF;box-shadow:4px 4px 10.7px rgba(142,110,74,0.49);display:flex;flex-direction:column;align-items:center;justify-content:center">
+      <span style="font-weight:700;font-size:48px;line-height:48px;color:#000000">{{ unit.value }}</span>
+      <span style="font-weight:700;font-size:13px;line-height:17px;color:#000000">{{ unit.label }}</span>
+    </div>
+  </sc-for>
+
+  <div style="position:absolute;left:657px;top:776px;width:411.031px;height:46px;box-sizing:border-box;overflow:hidden;border-radius:12px;background:#1C1108;outline:1px solid #868686;outline-offset:-1px;display:flex">
+    <sc-if value="{{ signedUp }}" hint-placeholder-val="{{ false }}">
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;gap:9px;margin:1px;background:linear-gradient(135deg, #FFAB00 0%, #FF5722 50%, #FF2D2D 100%);animation:om-faq 320ms cubic-bezier(.16,.84,.34,1) both">
+        <span style="font-weight:700;font-size:15px;color:#FFFFFF">✓</span>
+        <span style="font-weight:700;font-size:14px;line-height:20px;color:#FFFFFF;white-space:nowrap">{{ signedUpMessage }}</span>
+      </div>
+    </sc-if>
+    <sc-if value="{{ notSignedUp }}" hint-placeholder-val="{{ true }}">
+      <div onClick="{{ submitEmail }}" style="cursor:pointer;flex:1;min-width:0;display:flex;align-items:center;padding:0 12px 0 18px;background:#FFF5ED;margin:1px 0 1px 1px">
+        <span style="font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:{{ statusColor }}">{{ placeholder }}</span>
+      </div>
+      <button onClick="{{ submitEmail }}" style="flex:0 0 168px;height:44px;margin:1px 1px 1px 0;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:9px;background:linear-gradient(135deg, #FFAB00 0%, #FF5722 50%, #FF2D2D 100%);box-shadow:0px 4px 4px rgba(0,0,0,0.25);font-family:inherit;font-weight:700;font-size:14px;line-height:20px;color:#FFFFFF;white-space:nowrap" style-hover="filter:brightness(1.07)">
+{{ ctaLabel }}
+      </button>
+    </sc-if>
+  </div>
+  <div onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:1083px;top:788.5px;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap">See how it works →</div>
+  <div style="position:absolute;left:0;top:837px;width:1920px;text-align:center;font-weight:700;font-size:14px;line-height:21px;color:#FFFFFF;white-space:nowrap">{{ waitlistLine }}</div>
+
+  <div style="position:absolute;left:444px;top:921px;width:1016px;height:571px;border-radius:33px;overflow:hidden;background:#0B0B0B;box-shadow:0px 24px 64px rgba(90,44,20,0.32)">
+    <video ref="{{ heroVideoRef }}" preload="auto" autoPlay="{{ on }}" loop="{{ on }}" muted="{{ on }}" playsInline="{{ on }}" style="width:100%;height:100%;object-fit:cover;display:block"></video>
+    <button onClick="{{ toggleMute }}" aria-label="{{ muteLabel }}" style="position:absolute;right:20px;top:20px;width:44px;height:44px;padding:0;border:0;border-radius:22px;background:rgba(12,12,12,0.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:rgba(12,12,12,0.78)">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="4 9 8 9 13 5 13 19 8 15 4 15" fill="#FFFFFF" stroke="none"></polygon>
+        <sc-if value="{{ isMuted }}" hint-placeholder-val="{{ true }}">
+          <g><line x1="17" y1="9" x2="22" y2="15"></line><line x1="22" y1="9" x2="17" y2="15"></line></g>
+        </sc-if>
+        <sc-if value="{{ isUnmuted }}" hint-placeholder-val="{{ false }}">
+          <g><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7"></path><path d="M19.5 6a8 8 0 0 1 0 12"></path></g>
+        </sc-if>
+      </svg>
+    </button>
+  </div>
+
+  <div style="position:absolute;left:0;top:1597px;width:1920px;text-align:center;font-weight:700;font-size:48px;line-height:72px;letter-spacing:-0.96px;color:#FFFFFF">
+    <div style="white-space:nowrap"><span style="display:inline-block;background-image:linear-gradient(96deg, #FFFFFF 0%, #E4E0DC 32%, #FFFFFF 62%, #E9E5E1 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Three steps from a blank page</span></div>
+    <div style="white-space:nowrap"><span style="display:inline-block;background-image:linear-gradient(96deg, #EDE9E5 0%, #FFFFFF 40%, #E4E0DC 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">to polished essay</span></div>
+  </div>
+
+  <sc-for list="{{ steps }}" as="step" hint-placeholder-count="3">
+    <div style="position:absolute;top:1803px;left:{{ step.left }};width:370.656px;height:210.078px;overflow:hidden;border-radius:16px;background:{{ step.bg }}">
+      <div style="position:absolute;left:24.844px;top:26px;font-weight:700;font-size:24px;line-height:28.8px;color:#FFFFFF;white-space:nowrap">{{ step.title }}</div>
+      <div style="position:absolute;left:24.844px;top:89px;width:321px;font-weight:400;font-size:16px;line-height:23.1px;color:#FFFFFF">{{ step.body }}</div>
+    </div>
+  </sc-for>
+
+  <div style="position:absolute;left:0;top:2237px;width:1920px;text-align:center;font-weight:600;font-size:48px;line-height:72px;letter-spacing:-0.96px">
+    <div><span style="display:inline-block;background-image:linear-gradient(96deg, #2E2E2E 0%, #8C8C8C 22%, #333333 48%, #949494 74%, #3A3A3A 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Everything a great tutor gives you,</span></div>
+    <div><span style="display:inline-block;background-image:linear-gradient(95deg, #FFD000 0%, #FFAB00 38%, #FF5722 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">at 2am</span></div>
+  </div>
+
+  <div style="position:absolute;left:369px;top:2487px;width:566px;height:719px;border-radius:16px;background:linear-gradient(196deg, #BD583F 0%, #FFB879 100%);box-shadow:8px 16px 51.8px rgba(0,0,0,0.25)">
+    <div style="position:absolute;left:0;top:52px;width:566px;display:flex;align-items:center;justify-content:center;gap:9px;font-weight:400;font-size:28px;line-height:31.2px;color:#FFFFFF;white-space:nowrap">
+      <span>Find the right sources,</span>
+      <span style="display:flex;align-items:center;gap:10px;padding:6px 11px;border-radius:8px;background:rgba(217,217,217,0.13);border:1px solid rgba(255,255,255,0.13);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);box-shadow:inset -5px -2px 4px rgba(255,255,255,0.25)">
+        <span>instantly</span>
+        <span style="flex:0 0 auto;width:21px;height:21px;background:url(assets/instantly-icon.webp) center / contain no-repeat;filter:brightness(0) invert(1)"></span>
+      </span>
+    </div>
+    <div style="position:absolute;left:31px;top:117px;width:508px;font-weight:400;font-size:14px;line-height:23.8px;color:#FFFFFF">
+      <div>Stop wasting hours on Google Scholar. Tracely reads your draft and surfaces the strongest peer-reviewed evidence that supports — or challenges — your argument.</div>
+      <div style="margin-top:23.8px">Finds evidence from all over the web to give you the most credible and relevant evidence for your literature needs.</div>
+      <div style="font-size:14px">Accounts for: Relevancy | Credibility | Writing Style | Paper Context | More...</div>
+    </div>
+    <div style="position:absolute;left:-69.5px;top:230px;width:705px;height:354px;overflow:hidden">
+      <div style="position:absolute;left:50%;top:36px;width:420px;height:260px;margin-left:-210px;animation:om-lift 6.4s cubic-bezier(.45,0,.55,1) infinite">
+      <div style="position:absolute;left:50%;top:52px;width:96px;height:132px;margin-left:-48px;box-sizing:border-box;padding:14px 12px;border-radius:4px;background:#FDFCF9;box-shadow:0 6px 18px rgba(60,40,20,0.18);transform-origin:50% 196px;transform:rotate(-33deg);animation:om-sheet 6.4s cubic-bezier(.45,0,.55,1) 0.00s infinite;display:flex;flex-direction:column;gap:6px">
+        <div style="height:5px;width:44%;border-radius:2px;background:#C9C2B2;margin-bottom:3px"></div>
+        <div style="height:4px;width:70%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:82%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:76%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:84%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:62%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:80%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:54%;border-radius:2px;background:#DDD7CA"></div>
+      </div>
+      <div style="position:absolute;left:50%;top:52px;width:96px;height:132px;margin-left:-48px;box-sizing:border-box;padding:14px 12px;border-radius:4px;background:#FDFCF9;box-shadow:0 6px 18px rgba(60,40,20,0.18);transform-origin:50% 196px;transform:rotate(-20deg);animation:om-sheet 6.4s cubic-bezier(.45,0,.55,1) 0.16s infinite;display:flex;flex-direction:column;gap:6px">
+        <div style="height:5px;width:44%;border-radius:2px;background:#C9C2B2;margin-bottom:3px"></div>
+        <div style="height:4px;width:70%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:82%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:76%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:84%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:62%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:80%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:54%;border-radius:2px;background:#DDD7CA"></div>
+      </div>
+      <div style="position:absolute;left:50%;top:52px;width:96px;height:132px;margin-left:-48px;box-sizing:border-box;padding:14px 12px;border-radius:4px;background:#FDFCF9;box-shadow:0 6px 18px rgba(60,40,20,0.18);transform-origin:50% 196px;transform:rotate(-7deg);animation:om-sheet 6.4s cubic-bezier(.45,0,.55,1) 0.32s infinite;display:flex;flex-direction:column;gap:6px">
+        <div style="height:5px;width:44%;border-radius:2px;background:#C9C2B2;margin-bottom:3px"></div>
+        <div style="height:4px;width:70%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:82%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:76%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:84%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:62%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:80%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:54%;border-radius:2px;background:#DDD7CA"></div>
+      </div>
+      <div style="position:absolute;left:50%;top:52px;width:96px;height:132px;margin-left:-48px;box-sizing:border-box;padding:14px 12px;border-radius:4px;background:#FDFCF9;box-shadow:0 6px 18px rgba(60,40,20,0.18);transform-origin:50% 196px;transform:rotate(6deg);animation:om-sheet 6.4s cubic-bezier(.45,0,.55,1) 0.48s infinite;display:flex;flex-direction:column;gap:6px">
+        <div style="height:5px;width:44%;border-radius:2px;background:#C9C2B2;margin-bottom:3px"></div>
+        <div style="height:4px;width:70%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:82%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:76%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:84%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:62%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:80%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:54%;border-radius:2px;background:#DDD7CA"></div>
+      </div>
+      <div style="position:absolute;left:50%;top:52px;width:96px;height:132px;margin-left:-48px;box-sizing:border-box;padding:14px 12px;border-radius:4px;background:#FDFCF9;box-shadow:0 6px 18px rgba(60,40,20,0.18);transform-origin:50% 196px;transform:rotate(19deg);animation:om-sheet 6.4s cubic-bezier(.45,0,.55,1) 0.64s infinite;display:flex;flex-direction:column;gap:6px">
+        <div style="height:5px;width:44%;border-radius:2px;background:#C9C2B2;margin-bottom:3px"></div>
+        <div style="height:4px;width:70%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:82%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:76%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:84%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:62%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:80%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:54%;border-radius:2px;background:#DDD7CA"></div>
+      </div>
+      <div style="position:absolute;left:50%;top:52px;width:96px;height:132px;margin-left:-48px;box-sizing:border-box;padding:14px 12px;border-radius:4px;background:#FDFCF9;box-shadow:0 6px 18px rgba(60,40,20,0.18);transform-origin:50% 196px;transform:rotate(32deg);animation:om-sheet 6.4s cubic-bezier(.45,0,.55,1) 0.80s infinite;display:flex;flex-direction:column;gap:6px">
+        <div style="height:5px;width:44%;border-radius:2px;background:#C9C2B2;margin-bottom:3px"></div>
+        <div style="height:4px;width:70%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:82%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:76%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:84%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:62%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:80%;border-radius:2px;background:#DDD7CA"></div>
+        <div style="height:4px;width:54%;border-radius:2px;background:#DDD7CA"></div>
+      </div>
+        <div style="position:absolute;left:50%;top:44px;width:104px;height:104px;margin-left:-52px;animation:om-sweep 6.4s cubic-bezier(.45,0,.55,1) infinite">
+          <svg width="104" height="104" viewBox="0 0 104 104" style="display:block;overflow:visible">
+            <circle cx="44" cy="44" r="33" fill="rgba(255,255,255,0.10)" stroke="#2A2620" stroke-width="7"></circle>
+            <path d="M68 68 L92 94" stroke="#5C5142" stroke-width="11" stroke-linecap="round"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;left:28px;top:562px;width:509px;height:129px;filter:drop-shadow(0px 4px 3px rgba(0,0,0,0.25))">
+      <div style="position:absolute;inset:0;background:url(assets/source-cards.webp) center / contain no-repeat"></div>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:978px;top:2487px;width:566px;height:719px;border-radius:16px;background:linear-gradient(346deg, #FFFFFF 0%, #D0D0D0 100%);box-shadow:8px 4px 22px rgba(0,0,0,0.25)">
+    <div style="position:absolute;left:0;top:43px;width:566px;text-align:center;font-weight:400;font-size:32px;line-height:31.2px;color:#000000;white-space:nowrap">Cite anything in any format</div>
+    <div style="position:absolute;left:23px;top:94px;width:508px;font-weight:700;font-size:14px;line-height:23.8px;color:#5F5F5F">One click inserts a perfectly formatted citation in MLA, APA, or Chicago. Auto-fills author, date, publisher, and URL from the source.</div>
+    <div style="position:absolute;left:34px;top:189px;width:497px;height:507px;border-radius:12px;background:url(assets/cite-screenshot.webp) center / cover no-repeat;box-shadow:0px 4px 63.5px rgba(60,32,0,0.41)"></div>
+  </div>
+
+  <div style="position:absolute;left:374px;top:3340px;width:548px;text-align:center;font-weight:700;font-size:41.6px;line-height:49.92px"><span style="background-image:linear-gradient(95deg, #FFD000 0%, #FFAB00 38%, #FF5722 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Feedback</span><span style="color:#000000"> that actually teaches you</span></div>
+
+  <div style="position:absolute;left:406px;top:3538px;font-weight:400;line-height:23.8px;color:#000000"><span style="font-size:36px">8</span><span style="font-size:32px">+</span></div>
+  <div style="position:absolute;left:510.5px;top:3510px;font-weight:700;font-size:24px;line-height:31.2px;color:#000000;white-space:nowrap">Grading Styles</div>
+  <div style="position:absolute;left:511px;top:3543px;width:508px;font-weight:400;font-size:14px;line-height:23.8px;color:#5F5F5F">We support over 8 different grading styles, including 3rd-12th grade parameters, argumentative, narrative, and informational essays.</div>
+
+  <div style="position:absolute;left:374px;top:3664px;font-weight:400;line-height:23.8px;color:#000000"><span style="font-size:32px">100</span><span style="font-size:24px">%</span></div>
+  <div style="position:absolute;left:509.5px;top:3625px;font-weight:700;font-size:24px;line-height:31.2px;color:#000000;white-space:nowrap">Feedback like a great teacher</div>
+  <div style="position:absolute;left:511.5px;top:3664px;width:508px;font-weight:400;font-size:14px;line-height:23.8px;color:#5F5F5F">Tracely reads your essay the way an experienced English teacher would — flagging weak claims, unclear transitions, and underdeveloped arguments with specific advice.</div>
+
+  <div style="position:absolute;left:1128px;top:3341px;width:388px;height:411px;overflow:hidden;border-radius:16px;background:linear-gradient(180deg, #313131 0%, #FFFFFF 100%);box-shadow:0px 12px 29px rgba(37,22,4,0.36)">
+    <div style="position:absolute;left:33.5px;top:29px;width:321px;font-family:Inter, sans-serif;font-weight:700;line-height:23.8px;color:#FFFFFF"><span style="font-size:24px">Nowadays,</span><span style="font-size:15px;font-weight:400"> tools are rewriting every paragraph for you. We do it better, differently. Tracely checks each of your paragraphs, detects false facts, misphrased claims, and unclear reasoning so </span><span style="display:inline-block;font-size:15px;background:rgba(217,217,217,0.2);border:1px solid #A58666;border-radius:13px;box-shadow:inset 6px 7px 4px rgba(255,128,0,0.25);padding:0 8px;margin:0 3px;font-weight:400">you</span><span style="font-size:15px;font-weight:400"> can get better at writing.</span></div>
+    <div style="position:absolute;left:33px;top:213px;width:321px;height:152px;box-sizing:border-box;border-radius:9px;border:1px solid #000000;background:url(assets/feedback-screenshot.webp) 56.216% 23.005% / 101.521% 107.289% no-repeat;filter:blur(1.6px)"></div>
+  </div>
+
+  <div style="position:absolute;left:0;top:3852px;width:1920px;text-align:center;font-weight:700;font-size:15px;line-height:22px;letter-spacing:0.6px;color:#8A8A8A;white-space:nowrap">Compatible with all apps and websites on your computer</div>
+  <div style="position:absolute;left:0;top:3906px;width:1920px;height:74px;overflow:hidden;-webkit-mask-image:linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 13%, rgba(0,0,0,1) 87%, rgba(0,0,0,0) 100%);mask-image:linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 13%, rgba(0,0,0,1) 87%, rgba(0,0,0,0) 100%)">
+    <div style="display:flex;width:max-content;animation:om-belt 25s linear infinite">
+      <sc-for list="{{ beltApps }}" as="app" hint-placeholder-count="10">
+        <div style="flex:0 0 auto;height:74px;display:flex;align-items:center;gap:13px;padding:0 26px">
+          <span style="flex:0 0 auto;width:28px;height:28px;background-image:{{ app.iconCss }};background-size:contain;background-position:center;background-repeat:no-repeat"></span>
+          <span style="font-weight:700;font-size:26px;line-height:34px;letter-spacing:-0.3px;color:#000000;white-space:nowrap">{{ app.name }}</span>
+          <span style="margin-left:39px;width:5px;height:5px;border-radius:3px;background:#FFAB00"></span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:345px;top:4165px;width:538px;height:625px;border-radius:16px;background:linear-gradient(176deg, #F9AF74 0%, #C05C41 100%);box-shadow:0px -3px 23.6px rgba(0,0,0,0.31)">
+    <div style="position:absolute;left:108px;top:50px;font-weight:700;font-size:34px;line-height:47.6px;color:#000000;white-space:nowrap;font-weight:600">Real-time grading</div>
+    <div style="position:absolute;left:115px;top:313px;font-weight:700;font-size:10.88px;line-height:16.32px;color:#FF5722;white-space:nowrap">PLACEHOLDER FOR VIDEO OF THE APP FINDING EVIDENCE </div>
+    <div style="position:absolute;left:70px;top:162px;width:398px;height:463px;background:url(assets/grading-screenshot.webp) 57.895% 0.337% / 104.213% 118.048% no-repeat;filter:drop-shadow(0px 0px 18px rgba(255,255,255,0.85)) drop-shadow(0px 0px 45px rgba(255,255,255,0.55))"></div>
+  </div>
+
+  <div style="position:absolute;left:977.5px;top:4163px;width:548px;display:flex;flex-direction:column;align-items:flex-start">
+    <div style="font-weight:700;font-size:41.6px;line-height:49.92px;color:#000000">
+      <div style="white-space:nowrap">Research in <span style="background-image:linear-gradient(95deg, #FFD000 0%, #FFAB00 38%, #FF5722 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">seconds</span>,</div>
+      <div style="white-space:nowrap">not hours</div>
+    </div>
+    <div style="margin-top:22px;width:548px;font-weight:700;font-size:14.4px;line-height:25.2px;color:#5F5F5F">Tracely reads your draft and surfaces the exact sources that will make it stronger. Every result shows relevance score, source type, and a one-click citation insert.</div>
+    <div style="margin-top:30px;display:flex;flex-direction:column;gap:22px">
+      <sc-for list="{{ capabilities }}" as="cap" hint-placeholder-count="4">
+        <div style="position:relative;width:266px;height:87.609px;border-radius:12px;background:#FFFFFF;box-shadow:0px 4px 4px rgba(0,0,0,0.25)">
+          <div style="position:absolute;left:17px;top:17px;font-weight:700;font-size:22.4px;line-height:33.6px;color:#000000;white-space:nowrap">{{ cap.title }}</div>
+          <div style="position:absolute;left:17px;top:53px;font-weight:700;font-size:12px;line-height:18px;color:#5F5F5F;white-space:nowrap">{{ cap.sub }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="position:absolute;left:702.5px;top:4955px;width:560px;text-align:center;font-weight:700;font-size:40px;line-height:60px;white-space:nowrap;background-image:linear-gradient(95deg, #8A8A8A 0%, #3A3A3A 45%, #000000 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Frequently asked questions</div>
+
+  <div style="position:absolute;left:587px;top:5063px;width:768px;border-radius:12px;background:rgba(0,0,0,0.02);display:flex;flex-direction:column;gap:8px">
+    <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="6">
+      <div onClick="{{ faq.toggle }}" style="width:768px;box-sizing:border-box;overflow:hidden;border-radius:12px;background:rgba(255,255,255,0.02);outline:1px solid rgba(255,255,255,0.1);outline-offset:-1px;cursor:pointer;transition:background 200ms ease" style-hover="background:rgba(0,0,0,0.03)">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;height:60.391px;padding:0 20px">
+          <span style="font-weight:700;font-size:16px;line-height:24px;color:#000000;white-space:nowrap">{{ faq.q }}</span>
+          <sc-if value="{{ faq.isOpen }}" hint-placeholder-val="{{ false }}">
+            <span style="flex:0 0 auto;font-weight:700;font-size:22px;line-height:26.4px;color:#FF5722">−</span>
+          </sc-if>
+          <sc-if value="{{ faq.isClosed }}" hint-placeholder-val="{{ true }}">
+            <span style="flex:0 0 auto;font-weight:700;font-size:17.6px;line-height:26.4px;color:#000000">+</span>
+          </sc-if>
+        </div>
+        <sc-if value="{{ faq.isOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:0 20px 22px;width:660px;font-weight:400;font-size:15px;line-height:25px;color:#5F5F5F;animation:om-faq 300ms cubic-bezier(.16,.84,.34,1) both">{{ faq.a }}</div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="position:absolute;left:673.5px;top:5729px;width:622px;text-align:center;font-weight:700;font-size:64px;line-height:70.4px;letter-spacing:-1.92px;white-space:nowrap"><span style="display:inline-block;background-image:linear-gradient(96deg, #000000 0%, #101010 62%, #3C3C3C 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">Better writing start</span></div>
+  <div style="position:absolute;left:673.5px;top:5799.4px;width:622px;text-align:center;font-weight:700;font-size:64px;line-height:70.4px;letter-spacing:-1.92px;white-space:nowrap"><span style="display:inline-block;background-image:linear-gradient(95deg, #FF2D2D 0%, #FF5722 40%, #FFD000 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent">today.</span></div>
+  <div style="position:absolute;left:673.5px;top:5889.8px;width:622px;text-align:center;font-weight:700;font-size:16px;line-height:24px;color:#000000;white-space:nowrap">Students use Tracely to research smarter, write better, and actually learn.</div>
+  <div onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:827.5px;top:5953.8px;width:144px;height:46px;border-radius:10px;background:linear-gradient(135deg, #FFAB00 0%, #FF5722 50%, #FF2D2D 100%);box-shadow:inset 0px 1px 0px rgba(255,255,255,0.15)">
+    <div style="position:absolute;left:32px;top:12px;font-weight:700;font-size:14.4px;line-height:21.6px;letter-spacing:-0.144px;color:#FFFFFF;white-space:nowrap">Start for free</div>
+  </div>
+  <a href="pricing/" style="position:absolute;left:983.5px;top:5953.8px;width:159px;height:46px;box-sizing:border-box;border-radius:12px;outline:1px solid rgba(255,255,255,0.1);outline-offset:-1px;text-decoration:none">
+    <div style="position:absolute;left:36px;top:13px;font-weight:700;font-size:14px;line-height:20px;color:#000000;white-space:nowrap">See pricing →</div>
+  </a>
+
+  <div style="position:absolute;left:0;top:6010px;width:1920px;height:491px;background:#F2F3F5"></div>
+  <div style="position:absolute;left:425px;top:6046px;width:1152px;height:455px;box-sizing:border-box;padding:64px 24px;display:grid;grid-template-columns:repeat(5, 1fr);gap:32px">
+    <div style="grid-column:1 / span 2;position:relative">
+      <div style="position:absolute;left:-9.5px;top:-5px;width:65.777px;height:53px;background:url(assets/tracely-logo.webp) center / contain no-repeat"></div>
+      <div style="position:absolute;left:47.5px;top:4px;font-weight:700;font-size:20px;line-height:28.8px;letter-spacing:-0.384px;color:#000000;white-space:nowrap">Tracely</div>
+      <div style="position:absolute;left:0;top:46px;width:260px;font-weight:700;font-size:12.8px;line-height:21.76px;color:#000000">Research assistant and writing coach for students who want to learn, not just submit.</div>
+      <a href="#" onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:0;top:132px;font-weight:700;font-size:12px;line-height:18px;color:#000000;text-decoration:none">TikTok</a>
+      <a href="#" onClick="{{ soon }}" style="cursor:pointer;position:absolute;left:44px;top:132px;font-weight:700;font-size:12px;line-height:18px;color:#000000;text-decoration:none">Instagram</a>
+    </div>
+    <sc-for list="{{ footerCols }}" as="col" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:15px">
+        <span style="font-weight:700;font-size:13px;line-height:16.32px;letter-spacing:0.87px;color:#000000">{{ col.title }}</span>
+        <sc-for list="{{ col.links }}" as="item" hint-placeholder-count="4">
+          <a href="{{ item.href }}" onClick="{{ item.onClick }}" style="cursor:pointer;font-weight:700;font-size:13px;line-height:15px;color:#000000;text-decoration:none">{{ item.label }}</a>
+        </sc-for>
+      </div>
+    </sc-for>
+  </div>
+
+</div>
+  <sc-if value="{{ showSoon }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:0;right:0;bottom:34px;z-index:50;display:flex;justify-content:center;pointer-events:none"><div style="display:flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;background:#1C1108;box-shadow:0 12px 34px rgba(28,17,8,0.34);animation:om-toast 260ms cubic-bezier(.16,.84,.34,1) both">
+      <span style="width:7px;height:7px;border-radius:4px;background:#FFAB00"></span>
+      <span style="font-family:Inter, sans-serif;font-weight:700;font-size:14px;line-height:20px;color:#FFF5ED;white-space:nowrap">{{ soonLabel }}</span>
+    </div></div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;liveCountdown&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Waitlist&quot;},&quot;launchDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2026-10-25T22:03:14Z&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Waitlist&quot;},&quot;waitlistCount&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:25,&quot;min&quot;:0,&quot;max&quot;:100000,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Waitlist&quot;}}">
+class Component extends DCLogic {
+  state = { now: Date.now() };
+
+  componentDidMount() {
+    requestAnimationFrame(() => { this.fit(); this.setupReveal(); });
+    this._onResize = () => this.fit();
+    window.addEventListener("resize", this._onResize);
+    this.fetchCount();
+    this.dropNoscriptBanner();
+    if (this.props.liveCountdown !== false) {
+      this._t = setInterval(() => this.setState({ now: Date.now() }), 1000);
+    }
+  }
+  componentWillUnmount() {
+    clearInterval(this._t);
+    clearTimeout(this._failsafe);
+    window.removeEventListener("resize", this._onResize);
+    if (this._io) this._io.disconnect();
+  }
+
+  countdownUnits() {
+    const lefts = ["674px", "814px", "952px", "1087px"];
+    const labels = ["days", "hours", "minutes", "seconds"];
+    let vals = ["57", "02", "23", "14"];
+    if (this.props.liveCountdown !== false) {
+      const target = new Date(this.props.launchDate ?? "2026-10-25T22:03:14Z").getTime();
+      let s = Math.max(0, Math.floor((target - this.state.now) / 1000));
+      const d = Math.floor(s / 86400); s -= d * 86400;
+      const h = Math.floor(s / 3600); s -= h * 3600;
+      const m = Math.floor(s / 60); s -= m * 60;
+      const pad = (n) => (n < 10 ? "0" + n : String(n));
+      vals = [String(d), pad(h), pad(m), pad(s)];
+    }
+    return lefts.map((left, i) => ({ left, value: vals[i], label: labels[i] }));
+  }
+
+  blurStack() {
+    // progressive blur: many thin layers, each fading out a little higher up,
+    // tilted ~168deg so the right-hand cards stay blurred slightly lower down
+    const layers = [];
+    const N = 9;
+    for (let i = 0; i < N; i++) {
+      const t = (i + 1) / N;
+      const blur = +(0.6 * Math.pow(2.05, i * 0.72)).toFixed(2);
+      const solid = Math.round(4 + (1 - t) * 30);
+      const fade = solid + Math.round(20 + (1 - t) * 26);
+      // vertical ramp + an edge feather so blurred layers dissolve at the sides
+      // instead of terminating in hard rectangular corners
+      const feather = Math.min(9, 1.5 + blur * 0.55).toFixed(2);
+      const ramp = "linear-gradient(168deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) " + solid + "%, rgba(0,0,0,0) " + fade + "%)";
+      const edgeX = "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) " + feather + "%, rgba(0,0,0,1) " + (100 - feather) + "%, rgba(0,0,0,0) 100%)";
+      const edgeY = "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) " + feather + "%, rgba(0,0,0,1) " + (100 - feather) + "%, rgba(0,0,0,0) 100%)";
+      const mask = ramp + ", " + edgeX + ", " + edgeY;
+      layers.push({
+        style: "position:absolute;inset:0;background:url(assets/source-cards.webp) center / contain no-repeat;"
+          + "filter:blur(" + blur + "px);-webkit-mask-image:" + mask + ";mask-image:" + mask + ";"
+          + "-webkit-mask-size:100% 100%;mask-size:100% 100%;"
+          + "-webkit-mask-composite:source-in;mask-composite:intersect",
+      });
+    }
+    return layers;
+  }
+
+  // Official marks from the Simple Icons CDN. Word, OneNote, Notepad, Pages,
+  // WordPad, Apple Notes and Craft have no entry there, so they are left off.
+  beltList() {
+    const apps = [
+      { name: "Google Docs", slug: "googledocs", res: "icoGoogledocs" },
+      { name: "Google Slides", slug: "googleslides", res: "icoGoogleslides" },
+      { name: "Notion", slug: "notion", res: "icoNotion" },
+      { name: "Google Sheets", slug: "googlesheets", res: "icoGooglesheets" },
+      { name: "Gmail", slug: "gmail", res: "icoGmail" },
+    ];
+    const res = window.__resources || {};
+    const withIcons = apps.map((a) => ({
+      name: a.name,
+      // a background-image hole never fires a resource request until it resolves;
+      // in a standalone bundle these resolve to inlined blob URLs
+      iconCss: "url(" + (res[a.res] || "https://cdn.simpleicons.org/" + a.slug) + ")",
+    }));
+    return withIcons.concat(withIcons);
+  }
+
+  // Scroll reveal: everything below the hero fades and lifts into place the
+  // first time it enters the viewport, then stays put.
+  setupReveal() {
+    const root = this._root;
+    if (!root || this._revealDone) return;
+    if (typeof IntersectionObserver === "undefined") return;
+    this._revealDone = true;
+
+    const show = (el) => {
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    };
+    // hide toward whichever edge it left by, so it pops back in from the
+    // same direction whether you scroll down or back up
+    const hide = (el, fromAbove) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(" + (fromAbove ? "-26px" : "26px") + ")";
+    };
+
+    const targets = Array.from(root.children).filter((el) => {
+      if (el.tagName === "IFRAME") return false;
+      if (el.offsetHeight > 2000) return false;      // full-page background plates
+      if (el.offsetTop < 1560) return false;          // hero + video, visible on load
+      if (!el.textContent.trim() && !el.querySelector("img,video,iframe")) return false; // decorative scrims
+      return true;
+    });
+
+    // Observer first — the hidden state is only applied to elements we know
+    // are being watched, so a failure can never leave the page blank.
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) show(e.target);
+        else hide(e.target, e.boundingClientRect.top < 0);
+      }
+    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.04 });
+    this._io = io;
+
+    const watched = [];
+    targets.forEach((el) => {
+      try { io.observe(el); watched.push(el); } catch (err) { /* skip */ }
+    });
+
+    watched.forEach((el, i) => {
+      const d = (i % 3) * 70;
+      el.style.transition = "opacity 720ms cubic-bezier(.16,.84,.34,1) " + d + "ms, transform 720ms cubic-bezier(.16,.84,.34,1) " + d + "ms";
+      el.style.willChange = "opacity, transform";
+      el.style.opacity = "0";
+      el.style.transform = "translateY(26px)";
+    });
+
+    // No timeout failsafe: the IntersectionObserver feature-detect above is
+    // the guard. A timer can't tell "off screen" from "observer broken".
+  }
+
+  faqList() {
+    const open = this.state.openFaq;
+    const items = [
+      { q: "How does Tracely find evidence for my essay?", a: "Tracely reads your draft, works out what each paragraph is actually arguing, then searches peer-reviewed journals, books, and credible web sources for evidence that supports or challenges that specific claim. Every result comes back with a relevance score and the exact quote you can insert." },
+      { q: "Can Tracely coach my writing, or just fix grammar?", a: "Coaching first. Tracely flags weak claims, unclear transitions, and underdeveloped arguments the way an experienced English teacher would, and explains why each one is a problem. Grammar is the least interesting thing it does." },
+      { q: "Will it write the whole essay for me?", a: "No. Tracely deliberately doesn't rewrite your paragraphs for you. That's the thing every other tool does, and it's why students stop improving. Draft Mode can generate a section from scratch when you're genuinely stuck, but the default is feedback you have to act on yourself." },
+      { q: "Is Tracely free to use?", a: "Yes. The Starter plan covers all essential features at no cost: source searching, citation insertion, and writing feedback. Pro lifts the limits on AI responses if you're writing constantly." },
+      { q: "What citation formats does Tracely support?", a: "MLA, APA, and Chicago, inserted in one click with author, date, publisher, and URL auto-filled from the source. More formats are on the way." },
+      { q: "Is my work kept private?", a: "Your drafts are yours. They're never used to train models, never shown to other users, and you can delete any document permanently at any time." },
+    ];
+    return items.map((item, i) => ({
+      q: item.q,
+      a: item.a,
+      isOpen: open === i,
+      isClosed: open !== i,
+      toggle: () => this.setState({ openFaq: open === i ? null : i }),
+    }));
+  }
+
+  // Waitlist backend: Apps Script web app bound to the "Verified" sheet.
+  // It only accepts a verified Google OAuth access token, so signup runs
+  // through Google Identity Services rather than a typed email field.
+  endpoint() {
+    return "https://script.google.com/macros/s/AKfycbwpYsI_GFzN-R3L0KSqFK5r7aR7ZIrD--IR0qRoL8HXbh1D4wIvD6DqSTQNouW4uxje/exec";
+  }
+
+  // The offline bundler wraps the page in a <noscript> fallback inside <head>;
+  // the parser hoists its <div> into <body>, where it renders even with JS on.
+  dropNoscriptBanner() {
+    const sweep = () => {
+      document.querySelectorAll("body > div").forEach((el) => {
+        if (/requires JavaScript/i.test(el.textContent || "")) el.remove();
+      });
+    };
+    sweep();
+    setTimeout(sweep, 400);
+    setTimeout(sweep, 1600);
+  }
+
+  // labels with no page yet get a coming-soon toast; `real` entries are spliced
+  // in at `at` so the column order matches the design
+  footerLinks(labels, real, at) {
+    const soon = labels.map((label) => ({
+      label,
+      href: "#",
+      onClick: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        this.showSoon(label + " — coming soon");
+      },
+    }));
+    if (real && real.length) {
+      const out = soon.slice();
+      out.splice(at ?? out.length, 0, ...real.map((r) => ({ label: r.label, href: r.href, onClick: null })));
+      return out;
+    }
+    return soon;
+  }
+
+  showSoon(label) {
+    clearTimeout(this._soonT);
+    this.setState({ soonLabel: label });
+    this._soonT = setTimeout(() => this.setState({ soonLabel: null }), 2400);
+  }
+
+  fetchCount() {
+    fetch(this.endpoint())
+      .then((r) => r.json())
+      .then((d) => { if (typeof d.count === "number") this.setState({ liveCount: d.count }); })
+      .catch(() => {});
+  }
+
+  startGoogleAuth() {
+    const g = window.google && window.google.accounts && window.google.accounts.oauth2;
+    if (!g) {
+      this.setState({ authError: "Sign-in still loading" });
+      return;
+    }
+    this.setState({ authBusy: true, authError: null });
+    g.initTokenClient({
+      client_id: "73387480975-io62tpmsm0bm0nec4b94kub70gmq0joe.apps.googleusercontent.com",
+      scope: "openid email profile",
+      callback: (res) => {
+        if (!res || !res.access_token) {
+          this.setState({ authBusy: false, authError: "Sign-in cancelled" });
+          return;
+        }
+        fetch(this.endpoint(), {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify({ access_token: res.access_token }),
+        })
+          .then((r) => r.json())
+          .then((d) => {
+            if (!d.ok) {
+              // never surface the backend's own error codes
+              const human = {
+                "invalid token": "Sign-in expired — try again",
+                "wrong audience": "Sign-in misconfigured",
+                "unverified": "Verify your Google email first",
+                "no email": "No email on that account",
+              }[d.error] || "Could not join — try again";
+              this.setState({ authBusy: false, authError: human });
+              return;
+            }
+            this.setState({ authBusy: false, joined: true, position: d.position, liveCount: d.count });
+          })
+          .catch(() => this.setState({ authBusy: false, authError: "Network error" }));
+      },
+      error_callback: (err) => {
+        // a blocked popup is not a cancellation — say something actionable
+        const type = (err && (err.type || err.message)) || "";
+        const blocked = /popup_failed_to_open|popup_closed/i.test(type);
+        this.setState({
+          authBusy: false,
+          authError: blocked ? "Allow popups to sign in" : "Sign-in cancelled",
+        });
+      },
+    }).requestAccessToken();
+  }
+
+  // The design is authored on a fixed 1920×6501 canvas; scale it to whatever
+  // width the browser actually is so there's never dead space beside it.
+  fit() {
+    const wrap = this._fit, canvas = this._canvas;
+    if (!wrap || !canvas) return;
+    const w = wrap.clientWidth || window.innerWidth;
+    const s = w / 1920;
+    canvas.style.transform = "scale(" + s + ")";
+    canvas.style.visibility = "visible";
+    wrap.style.height = 6501 * s + "px";
+  }
+
+  renderVals() {
+    const count = this.state.liveCount ?? this.props.waitlistCount ?? 25;
+    const muted = this.state.heroMuted !== false;
+    return {
+      signedUp: !!this.state.joined,
+      notSignedUp: !this.state.joined,
+      signedUpMessage: this.state.position
+        ? "You're #" + this.state.position + " on the list"
+        : "You're on the list",
+      statusColor: this.state.authError ? "#C0392B" : "#777777",
+      placeholder: this.state.authError || "your@email.com",
+      ctaLabel: this.state.authBusy ? "Joining…" : "Get early access",
+      submitEmail: () => this.startGoogleAuth(),
+      on: true,
+      showSoon: !!this.state.soonLabel,
+      soonLabel: this.state.soonLabel || "",
+      soon: (e) => {
+        if (e && e.preventDefault) e.preventDefault();
+        const label = (e && e.currentTarget && e.currentTarget.textContent
+          ? e.currentTarget.textContent.replace(/[→\s]+$/, "").trim()
+          : "");
+        this.showSoon(label ? label + " — coming soon" : "Coming soon");
+      },
+      // ref on the root node never fires (the runtime owns it), so anchor to
+      // a zero-size first child and walk up
+      anchorRef: (el) => { if (el) this._root = el.parentElement; },
+      fitRef: (el) => { this._fit = el; },
+      canvasRef: (el) => { if (el && el !== this._canvas) { this._canvas = el; this.fit(); } },
+      beltApps: this.beltList(),
+      isMuted: muted,
+      isUnmuted: !muted,
+      muteLabel: muted ? "Unmute video" : "Mute video",
+      heroVideoRef: (el) => {
+        this._hero = el;
+        if (!el) return;
+        // src is assigned at runtime so the offline bundler leaves the file
+        // external — the page paints before the video has downloaded
+        // in a standalone bundle the inliner hands us a blob URL for this
+        if (!el.src) {
+          const res = window.__resources || {};
+          el.src = res.heroVideo || "assets/tracely.mp4";
+        }
+        el.muted = muted;
+        el.defaultMuted = true;
+        // src is assigned after mount, so autoplay doesn't fire on its own and
+        // canplay can land before the listener attaches — retry a few times
+        const go = () => { if (el.paused) el.play().catch(() => {}); };
+        el.addEventListener("loadedmetadata", go);
+        el.addEventListener("loadeddata", go);
+        el.addEventListener("canplay", go);
+        [0, 120, 400, 1000, 2200].forEach((t) => setTimeout(go, t));
+      },
+      toggleMute: () => {
+        const next = !muted;
+        if (this._hero) this._hero.muted = next;
+        this.setState({ heroMuted: next });
+      },
+      blurLayers: this.blurStack(),
+      countdown: this.countdownUnits(),
+      waitlistLine: count + " people have joined the waitlist",
+      steps: [
+        { left: "333.5px", bg: "rgba(255,255,255,0.12)", title: "Paste your draft or topic", body: "Drop in your essay draft, thesis, or just a topic. Tracely reads your intent and builds context for everything that follows." },
+        { left: "751.66px", bg: "rgba(255,255,255,0.10)", title: "Get evidence & coaching", body: "Tracely returns ranked sources with quotes ready to insert, plus teacher-style feedback on your argument, structure, and tone." },
+        { left: "1156.33px", bg: "rgba(255,255,255,0.10)", title: "Refine or generate", body: "Accept suggestions inline, ask follow-up questions, or trigger Draft Mode to generate any section from scratch." },
+      ],
+      capabilities: [
+        { title: "Completely Free", sub: "source insertion" },
+        { title: "Real time", sub: "fact-checking" },
+        { title: "Instant", sub: "source/citation searching" },
+        { title: "24/7", sub: "personalized writing feedback" },
+      ],
+      faqs: this.faqList(),
+      footerCols: [
+        { title: "Product", links: this.footerLinks(["Features", "Chrome Extension"], [{ label: "Pricing", href: "pricing/" }], 1) },
+        { title: "Resources", links: this.footerLinks(["Blog", "Research Tips", "Citation Guide"]) },
+        { title: "Support", links: this.footerLinks(["Help Center", "Privacy Policy", "Terms of Service", "Contact Us"]) },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
