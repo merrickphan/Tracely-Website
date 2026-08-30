@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Get Tracely</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #FFF5ED; --ink: #111111; --gray: #8A8A8A;
+      --accent: #FF5722; --orange1: #FF8A2B; --orange2: #FFB25C;
+    }
+    body { background: var(--cream); color: var(--ink); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+
+    .nav { display: flex; align-items: center; gap: 10px; padding: 26px clamp(20px, 6vw, 120px); }
+    .nav .word { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; }
+    .nav .right { margin-left: auto; font-size: 14px; font-weight: 600; color: var(--gray); }
+    .nav .right:hover { color: var(--ink); }
+    .plane { width: 34px; height: 28px; }
+
+    .hero { text-align: center; padding: clamp(30px, 6vw, 70px) 20px 10px; }
+    .hero h1 { font-size: clamp(40px, 7vw, 64px); font-weight: 800; letter-spacing: -0.03em; display: flex; align-items: center; justify-content: center; gap: clamp(10px, 2vw, 22px); flex-wrap: wrap; }
+    .appicon { width: clamp(52px, 8vw, 84px); height: clamp(52px, 8vw, 84px); border-radius: 22%; background: linear-gradient(150deg, #FF9A3D, #FF7A1A 60%, #F06010); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 44px rgba(255, 138, 43, 0.55), 0 10px 26px rgba(240, 96, 16, 0.35); }
+    .appicon svg { width: 55%; height: 55%; }
+    .hero p { max-width: 620px; margin: 22px auto 0; font-size: 15px; font-weight: 600; line-height: 1.6; }
+
+    .tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; max-width: 1180px; margin: clamp(30px, 5vw, 56px) auto 0; padding: 0 20px; align-items: start; }
+    .tier { background: #fff; border: 1px solid rgba(17, 17, 17, 0.07); border-radius: 16px; padding: 26px 24px 28px; box-shadow: 0 10px 30px rgba(17, 17, 17, 0.05); position: relative; }
+    .tier.pop { border: 2px solid var(--accent); box-shadow: 0 18px 44px rgba(255, 87, 34, 0.16); }
+    .badge-pop { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.06em; padding: 5px 12px; border-radius: 999px; white-space: nowrap; }
+    .tname { font-size: 13px; font-weight: 600; color: #555; }
+    .price { display: flex; align-items: baseline; gap: 8px; margin-top: 6px; }
+    .price .big { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; }
+    .price .per { font-size: 13px; font-weight: 600; color: var(--gray); }
+    .price .was { font-size: 16px; font-weight: 700; color: #B9B0A8; text-decoration: line-through; }
+    .deal { display: inline-block; margin-top: 8px; background: #FFEDE5; color: var(--accent); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+    .cta { display: block; width: 100%; margin-top: 18px; background: var(--ink); color: #fff; text-align: center; font-size: 15px; font-weight: 700; padding: 13px 0; border: none; border-radius: 999px; cursor: pointer; font-family: inherit; transition: transform .12s ease; }
+    .cta:hover { transform: translateY(-1px); }
+    .cta.alt { background: #fff; color: var(--ink); border: 1.5px solid rgba(17,17,17,0.16); }
+    .blurb { margin-top: 16px; font-size: 13.5px; font-weight: 600; }
+    .feat { margin-top: 12px; list-style: none; }
+    .feat li { display: flex; gap: 9px; font-size: 13.5px; color: #333; padding: 5px 0; }
+    .feat li::before { content: "✓"; color: #2E9E5B; font-weight: 800; }
+    .note { min-height: 18px; margin-top: 10px; text-align: center; font-size: 12.5px; font-weight: 600; color: var(--accent); }
+
+    .faq { max-width: 720px; margin: clamp(46px, 7vw, 90px) auto 0; padding: 0 20px; }
+    .faq h2 { font-size: clamp(24px, 4vw, 34px); font-weight: 800; letter-spacing: -0.02em; text-align: center; }
+    .qa { border-bottom: 1px solid rgba(17,17,17,0.08); padding: 18px 4px; }
+    .qa h3 { font-size: 15px; font-weight: 700; }
+    .qa p { margin-top: 6px; font-size: 14px; line-height: 1.6; color: #444; }
+
+    .foot { text-align: center; padding: 56px 20px 40px; font-size: 13px; color: var(--gray); font-weight: 600; }
+    .foot a { color: var(--accent); }
+
+    @media (max-width: 860px) {
+      .tiers { grid-template-columns: 1fr; max-width: 460px; }
+      .tier.pop { order: -1; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <svg class="plane" viewBox="0 0 24 20" fill="none"><path d="M2 8.5 21 2l-7.5 16-2.6-6.9L2 8.5z" fill="#FF7A1A"/><path d="M10.9 11.1 21 2l-8.9 7.2 -1.2 1.9z" fill="#FFB25C"/></svg>
+    <span class="word">Tracely</span>
+    <a class="right" href="/">← jointracely.com</a>
+  </nav>
+
+  <header class="hero">
+    <h1>Get <span class="appicon"><svg viewBox="0 0 24 20" fill="none"><path d="M2 8.5 21 2l-7.5 16-2.6-6.9L2 8.5z" fill="#fff"/><path d="M10.9 11.1 21 2l-8.9 7.2-1.2 1.9z" fill="#FFD8B0"/></svg></span> Tracely</h1>
+    <p>Every claim checked. Every source cited. Pick a plan — cancel anytime.</p>
+  </header>
+
+  <main class="tiers">
+    <section class="tier">
+      <div class="tname">Starter</div>
+      <div class="price"><span class="big">Free</span></div>
+      <a class="cta alt" href="https://chromewebstore.google.com/detail/dffmoeebkkghhgcklkbmaibfhgiegmdm" rel="noopener">Start free</a>
+      <div class="blurb">All essential features.</div>
+      <ul class="feat">
+        <li>Fast, accurate checking</li>
+        <li>5 source searches a day</li>
+        <li>APA · MLA · Chicago citations</li>
+        <li>Works right inside Google Docs</li>
+      </ul>
+      <div class="note"></div>
+    </section>
+
+    <section class="tier pop">
+      <span class="badge-pop">MOST POPULAR — 50% OFF</span>
+      <div class="tname">Student</div>
+      <div class="price"><span class="big">$4.99</span><span class="was">$10</span><span class="per">/ month</span></div>
+      <span class="deal">50% off — normally $10/month</span>
+      <button class="cta" data-plan="student">Subscribe</button>
+      <div class="blurb">Unlimited checking + sources.</div>
+      <ul class="feat">
+        <li>Everything in Starter, plus...</li>
+        <li>Unlimited checks and sources</li>
+        <li>Smarter checking model</li>
+        <li>Auto-finds sources as you write</li>
+        <li>Priority support</li>
+      </ul>
+      <div class="note" data-note="student"></div>
+    </section>
+
+    <section class="tier">
+      <div class="tname">Pro</div>
+      <div class="price"><span class="big">$9.99</span><span class="per">/ month</span></div>
+      <button class="cta" data-plan="pro">Subscribe</button>
+      <div class="blurb">Our deepest checking, everywhere.</div>
+      <ul class="feat">
+        <li>Everything in Student, plus...</li>
+        <li>Opus — our most thorough model</li>
+      </ul>
+      <div class="note" data-note="pro"></div>
+    </section>
+  </main>
+
+  <section class="faq">
+    <h2>Questions</h2>
+    <div class="qa"><h3>Can I cancel anytime?</h3><p>Yes — subscriptions are month to month. Cancel in one click and keep access until the end of the billing period.</p></div>
+    <div class="qa"><h3>What counts as a check?</h3><p>Tracely re-checks only sentences that changed, so a whole essay session usually costs just a handful of checks. Starter is generous; Student and Pro are unlimited.</p></div>
+    <div class="qa"><h3>Do I need a .edu email for Student?</h3><p>No — the Student plan is for everyone. It's priced for students, not gated by them.</p></div>
+  </section>
+
+  <footer class="foot">© Tracely · <a href="/">jointracely.com</a></footer>
+
+  <script>
+    // Checkout wiring — paste Stripe Payment Links here when billing goes
+    // live and the buttons work instantly. Empty = graceful pre-launch note.
+    const STRIPE_LINKS = {
+      student: "", // e.g. https://buy.stripe.com/...
+      pro: "",
+    };
+    for (const btn of document.querySelectorAll("[data-plan]")) {
+      btn.addEventListener("click", () => {
+        const plan = btn.dataset.plan;
+        const link = STRIPE_LINKS[plan];
+        if (link) { location.href = link; return; }
+        const note = document.querySelector('[data-note="' + plan + '"]');
+        if (note) note.textContent = "Checkout opens at launch — join the waitlist on the home page.";
+      });
+    }
+  </script>
+</body>
+</html>
